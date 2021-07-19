@@ -8,14 +8,14 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 // import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import RecipesTab from './RecipesTab';
 import FavoriteRecipesTab from './FavoriteRecipesTab';
+import TransactionsTab from './TransactionsTab';
 
-const windowWidth = (Dimensions.get('window').width) / 2;
+const windowWidth = (Dimensions.get('window').width) / 3;
 
-const recipes = [{ title: 'Chicken Tikka Masala', desc: 'Delicious spiced tomato and cream based curry with chicken tikka', price: 10 }, { title: 'tikka2', desc: 'delish2', price: 20 }];
-
-const renderScene = SceneMap({
-  recipesTab: () => (<RecipesTab recipes={recipes} />),
+const renderScene = (props) => SceneMap({
+  recipesTab: () => (<RecipesTab navigation={props.navigation} />),
   favoriteRecipesTab: FavoriteRecipesTab,
+  transactionsTab: TransactionsTab,
 });
 
 const renderLabel = (labelProps) => (
@@ -62,6 +62,7 @@ const UserScreen = (props) => {
   const [routes] = useState([
     { key: 'recipesTab', title: 'Recipes' },
     { key: 'favoriteRecipesTab', title: 'Favorite Recipes' },
+    { key: 'transactionsTab', title: 'Transactions' },
   ]);
 
   return (
@@ -87,7 +88,7 @@ const UserScreen = (props) => {
       <TabView
         style={styles.tabViewContainer}
         navigationState={{ index, routes }}
-        renderScene={renderScene}
+        renderScene={renderScene(props)}
         onIndexChange={setIndex}
         renderTabBar={renderTabBar}
       />

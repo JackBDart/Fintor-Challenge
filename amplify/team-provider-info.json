@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fintorchallenge-dev-210748-authRole",
+      "UnauthRoleArn": "arn:aws:iam::311387566570:role/amplify-fintorchallenge-dev-210748-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::311387566570:role/amplify-fintorchallenge-dev-210748-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-fintorchallenge-dev-210748-deployment",
+      "UnauthRoleName": "amplify-fintorchallenge-dev-210748-unauthRole",
+      "StackName": "amplify-fintorchallenge-dev-210748",
+      "StackId": "arn:aws:cloudformation:us-east-2:311387566570:stack/amplify-fintorchallenge-dev-210748/e29c4920-e846-11eb-9d88-06c1059fc22a",
+      "AmplifyAppId": "d2ntvqrhdr0ux9"
+    }
+  }
+}
