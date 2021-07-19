@@ -1,10 +1,33 @@
 import React from 'react';
 import {
-  View, Text, StyleSheet,
+  View, Text, StyleSheet, Button,
 } from 'react-native';
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import config from '../aws-exports';
+import { deleteRecipe, updateRecipe } from '../graphql/mutations';
+
+Amplify.configure(config);
 
 const RecipeTile = (item) => {
   const { recipe } = item;
+  const { navigation } = item;
+
+  async function deleteRecipeById() {
+    try {
+      await API.graphql(graphqlOperation(deleteRecipe, { input: { id: recipe.id } }));
+    } catch (err) {
+      console.log('error creating todo:', err);
+    }
+  }
+
+  async function updateRecipeById() {
+    try {
+      await API.graphql(graphqlOperation(updateRecipe, { input: { id: recipe.id, title: 'bozo' } }));
+    } catch (err) {
+      console.log('error creating todo:', err);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -18,9 +41,13 @@ const RecipeTile = (item) => {
         </Text>
       </View>
       <Text style={styles.description} numberOfLines={2}>
-        {recipe.desc}
-        dsadsadasdsadasdasdasdas
+        {recipe.description}
       </Text>
+      <View style={styles.headerContainer}>
+        <Button title="Delete" onPress={deleteRecipeById} />
+        <Button title="Expand" onPress={() => navigation.navigation.navigate('RecipeDetail', { recipe })} />
+        <Button title="Edit" onPress={updateRecipeById} />
+      </View>
     </View>
   );
 };

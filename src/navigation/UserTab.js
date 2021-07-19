@@ -23,12 +23,12 @@ const LeaderboardTab = () => {
         }}
       />
       <Stack.Screen
-        name="OtherProfileScreen"
+        name="RecipeDetail"
         component={OtherProfileScreen}
         options={{
-          title: 'Recipe Detail',
+          title: 'Details',
           headerStyle: {
-            backgroundColor: '#fff',
+            backgroundColor: '#2d2e30',
             shadowOffset: { height: 0, width: 0 }, // Gets rid of white line underneath
           },
           headerTintColor: '#fff',

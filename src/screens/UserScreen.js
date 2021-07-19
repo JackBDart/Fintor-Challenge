@@ -11,10 +11,10 @@ import FavoriteRecipesTab from './FavoriteRecipesTab';
 
 const windowWidth = (Dimensions.get('window').width) / 2;
 
-const recipes = [{ title: 'Chicken Tikka Masala', desc: 'Delicious spiced tomato and cream based curry with chicken tikka', price: 10 }, { title: 'tikka2', desc: 'delish2', price: 20 }];
+// const recipes = [{ title: 'Chicken Tikka Masala', desc: 'Delicious spiced tomato and cream based curry with chicken tikka', price: 10 }, { title: 'tikka2', desc: 'delish2', price: 20 }];
 
-const renderScene = SceneMap({
-  recipesTab: () => (<RecipesTab recipes={recipes} />),
+const renderScene = (props) => SceneMap({
+  recipesTab: () => (<RecipesTab navigation={props.navigation} />),
   favoriteRecipesTab: FavoriteRecipesTab,
 });
 
@@ -87,7 +87,7 @@ const UserScreen = (props) => {
       <TabView
         style={styles.tabViewContainer}
         navigationState={{ index, routes }}
-        renderScene={renderScene}
+        renderScene={renderScene(props)}
         onIndexChange={setIndex}
         renderTabBar={renderTabBar}
       />
