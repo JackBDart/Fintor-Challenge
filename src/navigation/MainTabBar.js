@@ -19,7 +19,7 @@ const MainTabBar = () => {
             height: '9%',
           },
         }}
-        screenOptions={({ route }) => ({
+        screenOptions={({
           tabBarIcon: ({ focused }) => {
             return <FontAwesomeIcon icon={faUser} size={26} color={focused ? '#5ecc7f' : 'white'} />;
           },

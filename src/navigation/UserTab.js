@@ -26,7 +26,7 @@ const LeaderboardTab = () => {
         name="RecipeDetail"
         component={OtherProfileScreen}
         options={{
-          title: 'Details',
+          title: 'Recipe Details',
           headerStyle: {
             backgroundColor: '#2d2e30',
             shadowOffset: { height: 0, width: 0 }, // Gets rid of white line underneath
