@@ -27,7 +27,7 @@ const TransactionsTab = () => {
         data={transactions}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.title}
         style={{ marginBottom: 40 }}
       />
     </SafeAreaView>
